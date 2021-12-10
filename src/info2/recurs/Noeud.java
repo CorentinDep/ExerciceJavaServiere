@@ -118,9 +118,8 @@ public class Noeud <T extends Comparable<T>> {
 
     public String infixe() {
         if (this.refGauche != null) {
-            return
+            return "";
         }
+        return "";
     }
-
-
 }
