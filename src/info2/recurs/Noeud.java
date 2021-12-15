@@ -207,6 +207,44 @@ public class Noeud<T extends Comparable<T>> implements Serializable {
         }
     }
 
+    /**
+     * Retourne sous la forme d'un entier la hauteur d'un arbre
+     */
+    public int hauteur() {
+        int compteurGauche = 1;
+        int compteurDroit = 1;
+
+        if (this.arbreDroit == null && this.arbreGauche == null) {
+            return 1;
+        }
+
+        if (this.arbreGauche != null) {
+            compteurGauche += this.arbreGauche.hauteur();
+        }
+
+        if (this.arbreDroit != null) {
+            compteurDroit += this.arbreDroit.hauteur();
+        }
+
+        return Math.max(compteurDroit, compteurGauche);
+    }
+
+    public static void main(String[] args) {
+        Noeud<Integer> n1 = new Noeud<>(47);
+        n1.inserer(25);
+        n1.inserer(11);
+        n1.inserer(7);
+        n1.inserer(17);
+        n1.inserer(43);
+        n1.inserer(31);
+        n1.inserer(44);
+        n1.inserer(77);
+        n1.inserer(65);
+        n1.inserer(68);
+        n1.inserer(93);
+
+        System.out.println("hauteur = " + n1.hauteur());
+    }
 
 
 }
